@@ -3,7 +3,7 @@ kubeconfig_path = "kubeconfig.yaml"
 namespace       = "default"
 
 # Datavolume from HTTP source
-dv-http-enabled       = true
+dv-http-enabled       = false
 dv-http-source        = "https://cloud.debian.org/images/cloud/bookworm/daily/latest/debian-12-generic-amd64-daily.qcow2"
 dv-http-name          = "debian12"
 dv-http-size          = "8Gi"
@@ -19,3 +19,4 @@ dv-pvc-size             = "32Gi"
 dv-pvc-storage-class    = "local-path"
 dv-pvc-access-modes     = ["ReadWriteOnce"]
 
+# Virtual Machine Options

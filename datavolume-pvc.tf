@@ -1,3 +1,4 @@
+/*
 resource "kubevirt_data_volume" "data_volume_pvc" {
 
   count = var.dv-pvc-enabled ? 1 : 0
@@ -27,4 +28,4 @@ resource "kubevirt_data_volume" "data_volume_pvc" {
     }
   }
 }
-
+*/

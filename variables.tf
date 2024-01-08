@@ -16,8 +16,9 @@ variable "namespace" {
 variable "dv-http-enabled" {
   type    = bool
   default = true
-}
+  description = "Create a datavolume from an HTTP source"
 
+}
 variable "dv-http-source" {
   type        = string
   description = "HTTP(S) source URL for an image to write to PVC"
@@ -60,6 +61,7 @@ variable "dv-http-access-modes" {
 variable "dv-pvc-enabled" {
   type    = bool
   default = false
+  description = "Create a datavolume from a pvc source"
 }
 
 variable "dv-pvc-source-name" {
@@ -102,5 +104,73 @@ variable "dv-pvc-access-modes" {
   description = "AccessModes to assign to PVC"
   sensitive   = false
   default     = ["ReadWriteOnce"]
+}
+
+
+/*
+  Settings for Virtual Machine 
+*/
+
+variable "vm-name" {
+  type = string
+  default = "my-vm"
+  sensitive = false
+  description = "Name of the virtual Machine"
+}
+
+variable "vm-run-strategy" {
+  type = string
+  default = "Always"
+  sensitive = false
+  description = "One of: Always, RerunOnFailure, Manual, Halted"
+}
+
+variable "vm-volume-name" {
+  type = string
+  default = "boot-volume"
+  sensitive = false
+  description = "Name of the volume to attack to the VM"
+}
+
+variable "vm-boot-volume-source" {
+  type = string
+  sensitive = false
+  default = "none"
+  description = "Name of the datavolume which backs the boot-volume"
+}
+
+variable "vm-kvm-enabled" {
+  type = bool
+  sensitive = false
+  default = false
+  description = "Enable KVM (Kernel-based Virtual Machine) acceleration"  
+}
+
+variable "vm-acpi-enabled" {
+  type = bool
+  sensitive = false
+  default = false
+  description = "Enable Advanced Configuration and Power Interface (ACPI) "  
+}
+
+variable "vm-smm-enabled" {
+  type = bool
+  sensitive = false
+  default = false
+  description = "Enable System Management Mode ( SMM ) "  
+}
+
+variable "vm-memory" {
+  type = string
+  default = "2G"
+  sensitive = false
+  description = "Amount of Mmeoty to assign VM (G)"
+}
+
+variable "vm-cores" {
+  type = number
+  default = 1
+  sensitive = false
+  description = "Number of physical cores to assign VM"
 }
 
